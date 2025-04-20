@@ -9,7 +9,7 @@ const Banner = () => {
     <section
       className="relative w-full h-[100rem] lg:h-[100vh] bg-cover bg-center items-center justify-center"
       style={{
-        backgroundImage:  `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('/src/assets/banner.jpg')`,
+        backgroundImage:  `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('/images/banner.jpg')`,
     }}>
 
     <Navbar />
