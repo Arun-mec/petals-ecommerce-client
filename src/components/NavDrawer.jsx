@@ -12,7 +12,7 @@ const NavDrawer = ({
                 <span className='text-gray-500' onClick={toggleDrawer}>close</span>
             </section>
             <section className="w-full bg-gray-100 flex flex-row justify-between items-center 
-                            rounded-md border-[0.1rem] border-gray-200 p-1">
+                            rounded-md border-[0.1rem] border-gray-100 p-1">
                 <Logo />
             </section>
             <section className="w-full flex flex-col justify-start gap-2">

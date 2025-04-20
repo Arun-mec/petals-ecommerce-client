@@ -3,11 +3,11 @@ import Navbar from './Navbar'
 import SearchBox from './SearchBox'
 
 const Banner = () => {
-  const titleStyle = `text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-10 md:leading-16`
+  const titleStyle = `text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-8 md:leading-12`
   const subTitleStyle = `text-sm lg:text-lg`
   return (
     <section
-      className="relative w-full h-[50rem] lg:h-[100vh] bg-cover bg-center items-center justify-center"
+      className="relative w-full h-[50rem] lg:h-[95vh] bg-cover bg-center items-center justify-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('/images/banner.jpg')`,
     }}> 

@@ -6,6 +6,12 @@
   padding-top: 1rem;
 }
 
+@utility smcontainer {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-top: 1rem;
+}
+
 @theme {
   --font-abeezee : "ABeeZee", "sans-serif";
   --font-sans : "Josefin Sans", "sans-serif";
