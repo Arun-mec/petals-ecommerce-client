@@ -3,18 +3,18 @@ import Navbar from './Navbar'
 import SearchBox from './SearchBox'
 
 const Banner = () => {
-  const titleStyle = `text-5xl font-semibold leading-16`
-  const subTitleStyle = `text-md`
+  const titleStyle = `text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-10 md:leading-16`
+  const subTitleStyle = `text-sm lg:text-lg`
   return (
     <section
-      className="relative w-full h-[100rem] lg:h-[100vh] bg-cover bg-center items-center justify-center"
+      className="relative w-full h-[50rem] lg:h-[100vh] bg-cover bg-center items-center justify-center"
       style={{
-        backgroundImage:  `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('/images/banner.jpg')`,
-    }}>
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('/images/banner.jpg')`,
+    }}> 
 
     <Navbar />
 
-    <div className='absolute inset-0 w-[100vw] lg:w-2/3 text-white flex flex-col justify-center items-center gap-4'>
+    <div className='absolute w-full lg:container inset-0 text-white flex flex-col justify-center items-center gap-4'>
       <section className={`flex flex-col items-center ${titleStyle}`}>
         <span>Crafting Comfort, Redefining Spaces.</span>
         <span>Your Home, Your Signature Style!</span>

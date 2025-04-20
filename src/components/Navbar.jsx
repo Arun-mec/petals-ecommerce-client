@@ -16,8 +16,9 @@ const Navbar = () => {
     return (
         <>
             {/* Desktop view  */}
-            <section className="w-full h-16 fixed top-0 left-0 hidden lg:flex flex-row items-center justify-evenly z-[25]
-                            bg-black/20 text-white text-md font-sans px-10">
+            <section className="w-full h-16 fixed top-0 left-0 hidden lg:flex flex-row 
+                                items-center justify-evenly z-[25] bg-black/20 
+                                text-white text-md font-sans px-10">
                 <div className="flex flex-row items-center justify-center">
                     <Logo />
                 </div>
@@ -31,7 +32,7 @@ const Navbar = () => {
 
             {/* Mobile view  */}
             <section className="w-full h-16 fixed lg:hidden flex flex-row items-center justify-center z-[25]
-                            bg-black/25 text-white text-md font-sans px-10">
+                            bg-black/25 text-white text-md font-sans px-4">
                 <nav className="w-full flex flex-row items-center justify-start gap-5">
                     <span className="material-symbols-outlined"
                             onClick={toggleDrawer}>menu</span>
