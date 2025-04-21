@@ -16,13 +16,15 @@ const promoData = [
     }
 ]
 
+const cardStyle = 'h-[36rem] lg:h-[25rem]'
+
 const PromoCards = () => {
   return (
     <div className='smcontainer lg:container grid grid-cols-1 lg:grid-cols-3 gap-4'>
         {
             promoData.map((promo) => {
                 return (
-                    <ImageCard image={promo.image} content={promo.text}/>
+                    <ImageCard image={promo.image} content={promo.text} style={cardStyle}/>
                 )
             })
         }

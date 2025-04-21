@@ -4,6 +4,7 @@ import CaptionText from '../../components/CaptionText'
 import PromoCards from '../../components/PromoCards'
 import SeasonalPicks from '../../components/SeasonalPicks'
 import Message from '../../components/Message'
+import CategoryGrid from '../../components/CategoryGrid'
 
 const Homepage = () => {
   return (
@@ -12,6 +13,7 @@ const Homepage = () => {
         <CaptionText />
         <PromoCards />
         <SeasonalPicks />
+        <CategoryGrid />
         <Message />
     </div>
   )

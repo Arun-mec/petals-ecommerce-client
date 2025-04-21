@@ -1,13 +1,22 @@
 import React from 'react'
 import Logo from './Logo'
 import NavLinks from './NavLinks'
-import UserLinks from './UserLinks'
+import { motion } from 'framer-motion'
 
 const NavDrawer = ({
     toggleDrawer }) => {
     return (
-        <nav className="max-w-[20rem] h-full lg:hidden flex flex-col items-start
-                    gap-5 p-2 py-4 relative left-0 top-0 z-[30] bg-white">
+        <motion.div 
+            initial="initial"
+            whileInView="hovered" >
+        <motion.div 
+            variants={{
+                initial : {x:"-10%"},
+                hovered : {x : 0}
+            }}
+            
+            className="fixed top-0 left-0 w-[18em] h-[100vh] max-w-[20rem] lg:hidden flex flex-col items-start
+                    gap-5 p-2 py-4 z-[30] bg-white">
             <section className="w-full flex flex-row justify-end items-center">
                 <span className='text-gray-500' onClick={toggleDrawer}>close</span>
             </section>
@@ -18,7 +27,8 @@ const NavDrawer = ({
             <section className="w-full flex flex-col justify-start gap-2">
                 <NavLinks style='focus:bg-gray-200 focus:rounded-md' />
             </section>
-        </nav>
+        </motion.div>
+        </motion.div>
     )
 }
 export default NavDrawer
