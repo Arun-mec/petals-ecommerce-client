@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
-
-const DetailsSection = ({ content }) => {
-
-}
-
+import { motion } from 'framer-motion'
 const CategoryCard = ({
     image,
     content,
@@ -13,13 +9,21 @@ const CategoryCard = ({
     const imgCardStyle = `${style}`
 
     return (
-        <div className="relative w-full" onMouseEnter={() => (setVisible(true))} onMouseLeave={() => (setVisible(false))}>
+        <div className="relative w-full" 
+            onMouseEnter={() => (setVisible(true))} 
+            onMouseLeave={() => (setVisible(false))}
+            onTouchStart={()=>{setVisible(!true)}}
+            onTouchEnd={()=>{setVisible(!true)}}
+            >
             <img src={image} className={`w-full object-cover ${imgCardStyle}`}
                 alt="" srcset="" />
 
             {
                 visible && 
-                <section className={`absolute bottom-0 left-0 bg-white/75 text-black w-full h-[20%] 
+                <motion.div 
+                    initial={{opacity:0, bottom:10}}
+                    whileInView={{opacity:1, bottom:0}}
+                    className={`absolute bg-white/75 text-black w-full h-[20%] 
                                 flex flex-row justify-between items-center hover:cursor-pointer p-2`}>
                     <span>{content}</span>
                     <section className='flex flex-row gap-1 items-center'>
@@ -28,7 +32,7 @@ const CategoryCard = ({
                             arrow_right_alt
                         </span>
                     </section>
-                </section>
+                </motion.div>
             }
 
         </div>

@@ -7,13 +7,8 @@ const NavDrawer = ({
     toggleDrawer }) => {
     return (
         <motion.div 
-            initial="initial"
-            whileInView="hovered" >
-        <motion.div 
-            variants={{
-                initial : {x:"-10%"},
-                hovered : {x : 0}
-            }}
+            initial={{x:"-10%"}}
+            whileInView={{x : 0}}
             
             className="fixed top-0 left-0 w-[18em] h-[100vh] max-w-[20rem] lg:hidden flex flex-col items-start
                     gap-5 p-2 py-4 z-[30] bg-white">
@@ -27,7 +22,6 @@ const NavDrawer = ({
             <section className="w-full flex flex-col justify-start gap-2">
                 <NavLinks style='focus:bg-gray-200 focus:rounded-md' />
             </section>
-        </motion.div>
         </motion.div>
     )
 }
