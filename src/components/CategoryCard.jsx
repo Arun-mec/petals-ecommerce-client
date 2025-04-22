@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+
 const CategoryCard = ({
     image,
     content,
@@ -23,6 +24,7 @@ const CategoryCard = ({
                 <motion.div 
                     initial={{opacity:0, bottom:10}}
                     whileInView={{opacity:1, bottom:0}}
+                    transition={{duration: 0.8}}
                     className={`absolute bg-white/75 text-black w-full h-[20%] 
                                 flex flex-row justify-between items-center hover:cursor-pointer p-2`}>
                     <span>{content}</span>

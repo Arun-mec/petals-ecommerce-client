@@ -1,19 +1,23 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { IoLogoInstagram } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
-const InstaCard = () => {
+const InstaCard = ({
+    image, 
+    link
+}) => {
   return (
     <div className='relative w-full'>
-        <img src="/images/image_9.jpg" 
+        <img src={image} 
             className="w-full aspect-square object-cover" alt="" />
         <motion.div 
             initial={{opacity:0}}
             whileHover={{opacity:1}}
-            whileFocus={{opacity:1}}
+            whileTap={{opacity:1}}
             className='absolute top-0 left-0 w-full h-full
-             bg-black/25 flex justify-center items-center cursor'>
-            <IoLogoInstagram className='text-white/50 text-xl lg:text-2xl'/>
+             bg-black/40 flex justify-center items-center cursor'>
+            <Link to={link} ><IoLogoInstagram className='text-white/50 text-xl lg:text-4xl'/></Link>
         </motion.div>
     </div>
   )

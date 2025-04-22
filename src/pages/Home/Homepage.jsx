@@ -6,6 +6,7 @@ import SeasonalPicks from '../../components/SeasonalPicks'
 import Message from '../../components/Message'
 import CategoryGrid from '../../components/CategoryGrid'
 import ShopOnInsta from '../../components/ShopOnInsta'
+import Footer from '../../components/Footer'
 
 const Homepage = () => {
   return (
@@ -17,6 +18,7 @@ const Homepage = () => {
         <CategoryGrid />
         <Message />
         <ShopOnInsta />
+        <Footer />
     </div>
   )
 }

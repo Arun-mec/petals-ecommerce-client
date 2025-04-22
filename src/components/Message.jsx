@@ -2,7 +2,7 @@ import React from 'react'
 
 const Title = ({title}) => {
     return (
-        <span className='text-xl'>{title}</span>
+        <span className='text-lg md:text-2xl'>{title}</span>
     )
 }
 

@@ -18,7 +18,7 @@ const CategoryGrid = () => {
     ]
     const cardStyle = 'h-[25rem] lg:h-[20rem]'
   return (
-    <div className='smcontainer lg:container grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4'>
+    <div className='smcontainer lg:container grid grid-cols-1 md:grid-cols-3 gap-2 lg:gap-4'>
         {
             categories.map((category) => {
                 return (

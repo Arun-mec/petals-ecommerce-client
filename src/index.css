@@ -33,9 +33,9 @@
 }
 
 @theme {
-  --font-abeezee : "ABeeZee", "sans-serif";
+  --font-raleway : "Raleway", "sans-serif";
   --font-sans : "Josefin Sans", "sans-serif";
-  --font-spgothic : "Special Gothic Expanded One", "sans-serif";
+  --font-gothic: "Special Gothic Expanded One", "sans-serif";
   --animate-fadein : fade-in 0.2s ease-out;
   --animate-wiggle: wiggle 1s ease-in-out infinite;
 
