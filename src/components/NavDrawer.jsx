@@ -6,10 +6,10 @@ import { motion } from 'framer-motion'
 const NavDrawer = ({
     toggleDrawer }) => {
     return (
-        <motion.div 
-            initial={{x:"-10%"}}
-            whileInView={{x : 0}}
-            
+        <motion.div
+            initial={{ x: "-10%" }}
+            whileInView={{ x: 0 }}
+
             className="fixed top-0 left-0 w-[18em] h-[100vh] max-w-[20rem] lg:hidden flex flex-col items-start
                     gap-5 p-2 py-4 z-[30] bg-white">
             <section className="w-full flex flex-row justify-end items-center">

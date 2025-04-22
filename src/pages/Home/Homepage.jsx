@@ -5,6 +5,7 @@ import PromoCards from '../../components/PromoCards'
 import SeasonalPicks from '../../components/SeasonalPicks'
 import Message from '../../components/Message'
 import CategoryGrid from '../../components/CategoryGrid'
+import ShopOnInsta from '../../components/ShopOnInsta'
 
 const Homepage = () => {
   return (
@@ -15,6 +16,7 @@ const Homepage = () => {
         <SeasonalPicks />
         <CategoryGrid />
         <Message />
+        <ShopOnInsta />
     </div>
   )
 }
