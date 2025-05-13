@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from './Navbar'
-import SearchBox from './SearchBox'
+import Navbar from '../navbar/Navbar'
+import SearchBox from '../../ui/SearchBox'
 import { motion } from 'framer-motion'
 
 const Banner = () => {
@@ -13,7 +13,7 @@ const Banner = () => {
             transition={{ duration: 0.8 }}
       className="relative w-full h-[50rem] lg:h-[95vh] bg-cover bg-center items-center justify-center"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('/images/banner.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("/images/banner2.jpg")`,
     }}> 
 
     <Navbar />
@@ -33,5 +33,3 @@ const Banner = () => {
 }
 
 export default Banner
-
-// 

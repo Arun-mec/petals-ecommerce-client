@@ -1,16 +1,16 @@
 import React from 'react'
-import Banner from '../../components/Banner'
-import CaptionText from '../../components/CaptionText'
-import PromoCards from '../../components/PromoCards'
-import SeasonalPicks from '../../components/SeasonalPicks'
-import Message from '../../components/Message'
-import CategoryGrid from '../../components/CategoryGrid'
-import ShopOnInsta from '../../components/ShopOnInsta'
-import Footer from '../../components/Footer'
+import Banner from '../../components/layout/banner/Banner'
+import CaptionText from '../../components/category/CaptionText'
+import PromoCards from '../../components/products/PromoCards'
+import SeasonalPicks from '../../components/products/SeasonalPicks'
+import CategoryGrid from '../../components/category/CategoryGrid'
+import Message from '../../components/ui/Message'
+import ShopOnInsta from '../../components/products/ShopOnInsta'
+import Footer from '../../components/layout/footer/Footer'
 
 const Homepage = () => {
   return (
-    <div>
+    <>
         <Banner />
         <CaptionText />
         <PromoCards />
@@ -19,7 +19,7 @@ const Homepage = () => {
         <Message />
         <ShopOnInsta />
         <Footer />
-    </div>
+    </>
   )
 }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import InstaCard from './InstaCard'
-import { motion } from 'framer-motion'
-
+import { motion } from 'framer-motion';
 
 const Title = ({ title }) => {
     return (

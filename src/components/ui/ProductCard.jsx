@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 const ProductCard = ({
     image,
@@ -6,6 +7,7 @@ const ProductCard = ({
     price
     }) => {
 
+    const isHome = useParams();
     const [like, setLike] = useState(false);
     const [show, setShow] = useState(false)
 

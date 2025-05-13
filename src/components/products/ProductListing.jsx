@@ -1,15 +1,9 @@
 import React from 'react'
-import ProductCard from './ProductCard'
+import ProductListingTitle from './ProductListingTitle'
+import ProductCard from '../ui/ProductCard'
 
-const Title = ({ title }) => {
-    return (
-        <span className='text-xl lg:text-2xl'>{title}</span>
-    )
-}
-
-const SeasonalPicks = () => {
-
-    const seasonalProducts = [
+const ProductListing = () => {
+  const seasonalProducts = [
         {
             image: '/images/image_5.jpg',
             name: 'Classy Easy Zipper Tote',
@@ -36,13 +30,13 @@ const SeasonalPicks = () => {
             price: 1500
         }
     ]
-    return (
-        <div className="smcontainer lg:container my-6 flex flex-col gap-6">
-            <Title title="What to Wear Now" />
-
-            <section className="flex lg:grid lg:grid-cols-5 gap-4 overflow-x-auto py-2 scroll-smooth">
-                {seasonalProducts.map((product, i) => (
-                    <div key={i} className="min-w-[200px] lg:min-w-0 flex-shrink-0">
+  return (
+    <div 
+        className="w-full min-h-[60vh]">
+        <ProductListingTitle />
+        <section className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {seasonalProducts.map((product, i) => (
+                    <div key={i} className="min-w-[200px] lg:min-w-0 flex items-center justify-center flex-shrink-0">
                         <ProductCard
                             image={product.image}
                             name={product.name}
@@ -50,10 +44,9 @@ const SeasonalPicks = () => {
                         />
                     </div>
                 ))}
-            </section>
-        </div>
-
-    )
+        </section>
+    </div>
+  )
 }
 
-export default SeasonalPicks
+export default ProductListing

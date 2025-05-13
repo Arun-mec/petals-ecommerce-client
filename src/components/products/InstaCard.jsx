@@ -1,6 +1,6 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import { IoLogoInstagram } from "react-icons/io5";
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const InstaCard = ({

@@ -1,6 +1,6 @@
 import React from 'react'
-import FooterContactCard from './FooterCard'
-import SubscriptionForm from './SubscriptionForm'
+import FooterContactCard from '../footer/FooterCard'
+import SubscriptionForm from '../footer/SubscriptionForm'
 import { FaRegCopyright } from "react-icons/fa";
 
 
@@ -74,7 +74,7 @@ const links = [contactLinks, companyLinks, customerLinks]
 
 const Footer = () => {
   return (
-    <section className='bg-gray-100 py-10'>
+    <section className='bg-gray-100 py-10 '>
         <div className="smcontainer lg:container grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
                 {
@@ -87,7 +87,8 @@ const Footer = () => {
             </div>
             <SubscriptionForm />
         </div>
-        <span className='flex flex-row items-center justify-center gap-1 text-gray-400'><FaRegCopyright />All rights reserved</span>
+        <span className='flex flex-row items-center justify-center gap-1 text-gray-400'>
+            <FaRegCopyright />All rights reserved</span>
     </section>
   )
 }
