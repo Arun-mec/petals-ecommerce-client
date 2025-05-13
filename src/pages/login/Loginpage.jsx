@@ -4,7 +4,7 @@ import Header from '../../components/layout/header/Header'
 import LoginBanner from '../../components/auth/login/LoginBanner'
 import LoginForm from '../../components/auth/login/LoginForm'
 
-const Loginpage = () => {
+const LoginPage = () => {
   return (
     <>
         <Header /> 
@@ -15,4 +15,4 @@ const Loginpage = () => {
   )
 }
 
-export default Loginpage
+export default LoginPage
