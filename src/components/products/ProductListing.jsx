@@ -3,7 +3,7 @@ import ProductListingTitle from './ProductListingTitle'
 import ProductCard from '../ui/ProductCard'
 
 const ProductListing = () => {
-  const seasonalProducts = [
+    const seasonalProducts = [
         {
             image: '/images/image_5.jpg',
             name: 'Classy Easy Zipper Tote',
@@ -30,23 +30,24 @@ const ProductListing = () => {
             price: 1500
         }
     ]
-  return (
-    <div 
-        className="w-full min-h-[60vh]">
-        <ProductListingTitle />
-        <section className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {seasonalProducts.map((product, i) => (
-                    <div key={i} className="min-w-[200px] lg:min-w-0 flex items-center justify-center flex-shrink-0">
-                        <ProductCard
-                            image={product.image}
-                            name={product.name}
-                            price={product.price}
-                        />
-                    </div>
-                ))}
-        </section>
-    </div>
-  )
+    return (
+        <div
+            className="w-full min-h-[60vh]">
+            <ProductListingTitle />
+            <section className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                {
+                    seasonalProducts.map((product, i) => (
+                        <div key={i} className="min-w-[200px] lg:min-w-0 flex items-center justify-center flex-shrink-0">
+                            <ProductCard
+                                image={product.image}
+                                name={product.name}
+                                price={product.price}
+                            />
+                        </div>
+                    ))}
+            </section>
+        </div>
+    )
 }
 
 export default ProductListing

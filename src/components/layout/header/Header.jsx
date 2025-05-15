@@ -8,7 +8,7 @@ const Header = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative w-full bg-cover bg-center items-center justify-center" >
+            className="relative z-[50] w-full bg-cover bg-center items-center justify-center" >
             <Navbar />
         </motion.div>
     )

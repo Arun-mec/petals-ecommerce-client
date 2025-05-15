@@ -10,14 +10,13 @@ const Banner = () => {
     <motion.div 
             initial={{opacity:0}}
             whileInView={{opacity:1}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.2 }}
       className="relative w-full h-[50rem] lg:h-[95vh] bg-cover bg-center items-center justify-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("/images/banner2.jpg")`,
     }}> 
 
     <Navbar />
-
     <div className='absolute w-full lg:container inset-0 text-white flex flex-col justify-center items-center gap-4'>
       <section className={`flex flex-col items-center ${titleStyle}`}>
         <span>Crafting Comfort, Redefining Spaces.</span>

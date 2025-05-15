@@ -18,10 +18,8 @@ const NavDropDown = ({ isvisible, setIsVisible }) => {
         <> {
             isvisible &&
             <section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-                className={`bg-gray-100 text-black w-full absolute hidden lg:flex flex-row 
-                                items-center justify-evenly z-[25] text-md font-sans px-10 animate-slidedown p-2 md:p-4`}>
-
-
+                className={`bg-gray-100 text-black w-full absolute hidden lg:flex flex-row z-[75]
+                                items-center justify-evenly text-md font-sans px-10 animate-slidedown p-2 md:p-4`}>
                 <section className='flex flex-row items-start gap-10'>
                     {
                         navbarlinks.map((navlink, key) => {
