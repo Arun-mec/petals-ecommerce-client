@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Logo from '../logo/Logo';
 import NavDrawer from './NavDrawer';
@@ -20,18 +20,13 @@ const Navbar = () => {
     const handleMouseLeave = () => setIsVisible(false);
 
     // Memoize navbar class based on route and visibility
-    const navbarClass = () => {
-        if (!isHome) return 'bg-gray-100 text-black';
-        return isVisible ? 'bg-gray-100 text-black' : 'bg-black/25 text-white';
-    };
-
     return (
         <>
             {/* Desktop view */}
             <section
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${navbarClass} w-full h-16 sticky top-0 left-0 hidden lg:flex flex-row items-center 
+                className={`${isHome ? isVisible ? 'bg-gray-100 text-black' : 'bg-black/25 text-white' : 'bg-gray-100 text-black'} w-full h-16 sticky top-0 left-0 hidden lg:flex flex-row items-center 
                     justify-evenly z-[80] text-md font-sans px-10`}>
                 <nav className="h-full flex flex-row items-center justify-baseline gap-10">
                     <Logo />
@@ -48,7 +43,7 @@ const Navbar = () => {
 
             {/* Mobile view */}
 
-            <NavbarSm navbarClass={navbarClass} toggleDrawer={toggleDrawer}/>
+            <NavbarSm navbarClass={`${isHome ? isVisible ? 'bg-gray-100 text-black' : 'bg-black/25 text-white' : 'bg-gray-100 text-black'}`} toggleDrawer={toggleDrawer}/>
 
             {isDrawOpen && <NavDrawer toggleDrawer={toggleDrawer} />}
         </>
