@@ -24,11 +24,11 @@
 
 @keyframes slidedown {
   0% {
-    opacity:1;
+    z-index: 75;
     transform: translateY(-100px);
   }
   100% {
-    opacity:1;
+    z-index: 75;
     transform: translateY(0px);
   }
 }
@@ -50,7 +50,7 @@
   --font-gothic: "Special Gothic Expanded One", "sans-serif";
   --animate-fadein : fade-in 0.2s ease-out;
   --animate-wiggle: wiggle 1s ease-in-out infinite;
-  --animate-slidedown : slidedown 0.25s ease-in-out forwards;
+  --animate-slidedown : slidedown 0.4s ease-in-out forwards;
 
 }
 
