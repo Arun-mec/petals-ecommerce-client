@@ -12,7 +12,7 @@ const SubscriptionForm = () => {
                 By signing up, you agree to the <span className='underline cursor-pointer'>Privacy policy</span> and <span className='underline cursor-pointer'>Terms of service</span>
             </span>
         </section>
-        <Button content="Subscribe" style="p-1 border-[.1rem] border-black bg-black text-white hover:text-black text-md" />
+        <Button content="Subscribe" style="p-1 max-w-fit border-[.1rem] border-black bg-black text-white hover:text-black text-md" />
     </div>
   )
 }

@@ -1,8 +1,15 @@
 import React from 'react'
+import Header from '../../components/layout/header/Header'
+import Product from '../../components/products/Product'
+import Footer from '../../components/layout/footer/Footer'
 
 const ProductPage = () => {
   return (
-    <div>ProductPage</div>
+    <>
+      <Header />
+      <Product />
+      <Footer />
+    </>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from '../ui/ProductCard'
+import SeasonProduct from '../ui/SeasonProduct'
 
 const Title = ({ title }) => {
     return (
@@ -43,10 +43,11 @@ const SeasonalPicks = () => {
             <section className="flex lg:grid lg:grid-cols-5 gap-4 overflow-x-auto py-2 scroll-smooth">
                 {seasonalProducts.map((product, i) => (
                     <div key={i} className="min-w-[200px] lg:min-w-0 flex-shrink-0">
-                        <ProductCard
+                        <SeasonProduct
                             image={product.image}
                             name={product.name}
                             price={product.price}
+                            like="true"
                         />
                     </div>
                 ))}

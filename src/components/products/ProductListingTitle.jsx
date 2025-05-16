@@ -7,8 +7,8 @@ const ProductListingTitle = () => {
   return (
     <div 
         className="w-full flex flex-col items-start gap-6 md:gap-8 
-        border-b-[.1rem] border-b-gray-200 p-2 md:p-4 lg:-10">
-        <span className='text-lg md:text-xl '>Shop</span>
+        border-b-[.1rem] border-b-gray-200 py-2 md:py-4 lg:py-6">
+        <span className='text-lg md:text-xl'>shop</span>
         <section className='w-full flex flex-row items-center justify-betweeen'>
           <div className='w-full flex flex-row items-center justify-betweeen gap-1 md:gap-2'>
             {

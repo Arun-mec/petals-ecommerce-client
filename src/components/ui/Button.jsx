@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const Button = ({content, style}) => {
-    const buttonStyle = `${style} max-w-fit cursor-pointer`
+    const buttonStyle = `${style} cursor-pointer`
     
     const buttonVariants = {
         initial: {},
