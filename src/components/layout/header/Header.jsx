@@ -1,13 +1,11 @@
-import React from 'react'
 import Navbar from '../navbar/Navbar'
-import { motion } from 'framer-motion'
 
 const Header = () => {
     return (
-        <div
-            className="relative z-[50] w-full bg-cover bg-center items-center justify-center" >
+        <div className="z-[75] fixed top-0 left-0 w-full bg-transparent flex items-center justify-center">
             <Navbar />
         </div>
+
     )
 }
 

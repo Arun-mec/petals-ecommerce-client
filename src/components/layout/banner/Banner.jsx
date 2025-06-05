@@ -13,7 +13,7 @@ const Banner = () => {
         backgroundImage: `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("/images/banner2.jpg")`,
     }}> 
 
-    <Navbar />
+    {/* <Navbar /> */}
     <div className='absolute w-full lg:container inset-0 text-white flex flex-col justify-center items-center gap-4'>
       <motion.section 
         initial={{y:"-100%"}}

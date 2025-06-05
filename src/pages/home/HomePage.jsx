@@ -7,10 +7,12 @@ import CategoryGrid from '../../components/category/CategoryGrid'
 import Message from '../../components/ui/Message'
 import ShopOnInsta from '../../components/products/ShopOnInsta'
 import Footer from '../../components/layout/footer/Footer'
+import Header from '../../components/layout/header/Header'
 
 const HomePage = () => {
   return (
     <>
+        <Header />
         <Banner />
         <CaptionText />
         <PromoCards />

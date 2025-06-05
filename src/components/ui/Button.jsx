@@ -1,8 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const Button = ({content, style}) => {
-    const buttonStyle = `${style} cursor-pointer`
+const Button = ({content, onClick, onMouseEnter, onMouseLeave, style, isDisabled}) => {
+    const buttonStyle = `${isDisabled && 'bg-gray-600'} ${style} cursor-pointer`
     
     const buttonVariants = {
         initial: {},
@@ -19,11 +19,14 @@ const Button = ({content, style}) => {
       
   return (
     <motion.button
-    initial="initial"
-    whileHover="hover"
-    variants={buttonVariants}
-    className={`${buttonStyle} relative overflow-hidden`}
-  >
+        initial="initial"
+        whileHover="hover"
+        variants={buttonVariants}
+        className={`${buttonStyle} relative overflow-hidden`}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
     <span className="relative z-10">{content}</span>
     <motion.span
       variants={fillVariants}

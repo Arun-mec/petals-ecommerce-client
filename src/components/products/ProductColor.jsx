@@ -1,34 +1,40 @@
 import React from 'react'
 
-const ProductColor = ({colors, availableColors}) => {
+const ProductColor = ({ colors, availableColors }) => {
 
-    console.log(colors);
-    
-    const currentColor = availableColors !== 0 ? availableColors[0] : '#000'; 
+    const currentColor = availableColors !== 0 ? availableColors[0] : '#000';
 
     // const colors = ["#ff5733", "#3498db", "#8e44ad"]
 
     const pdtColorStyle = 'h-full aspect-square rounded-full'
-  return (
-    <section className='flex flex-col items-start justify-center gap-1'>
-        {/* <span className="text-md md:text-lg">Product Color</span> */}
-        <span className="text-sm md:text-md text-gray-500">Color</span>
-        <div className='flex flex-row items-center h-6 justify-center gap-2 md:gap-4'>
-            {
-                availableColors && 
-                availableColors.map((color)=> {
-                    return (
-                        currentColor===color ? <div className="h-full aspect-square p-[0.1rem] border-[0.1rem] border-black inline-block rounded-full">
-                            <span className={`${pdtColorStyle}`} style={{backgroundColor:color}}></span> 
-                        </div> :
-                        <span className={`${pdtColorStyle}`} style={{backgroundColor:color}}></span> 
-                    )
-                })
-            }
-            
-        </div>
-    </section>
-  )
+    return (
+        <section className="flex flex-col items-start gap-2">
+            <span className="text-sm md:text-base text-gray-600 font-medium">Color</span>
+
+            <div className="flex flex-row items-center justify-start gap-3">
+                {availableColors &&
+                    availableColors.map((color) => {
+                        const isSelected = currentColor === color;
+
+                        return (
+                            <div
+                                key={color}
+                                onClick={() => handleColorSelect?.(color)}
+                                className={`relative w-6 h-6 md:w-7 md:h-7 rounded-full cursor-pointer transition-all
+              ${isSelected ? 'ring-2 ring-black' : 'ring-1 ring-gray-300 hover:ring-black'}`}
+                                style={{ backgroundColor: color }}
+                            >
+                                {/* Optional checkmark or border when selected */}
+                                {isSelected && (
+                                    <div className="absolute inset-0 rounded-full border-[2px] border-white pointer-events-none"></div>
+                                )}
+                            </div>
+                        );
+                    })}
+            </div>
+        </section>
+
+    )
 }
 
 export default ProductColor
