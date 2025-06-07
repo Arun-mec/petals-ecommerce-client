@@ -1,10 +1,11 @@
 import React from 'react'
 import OrderSummary from '../../components/orders/OrderSummary'
+import Order from '../../components/orders/Order'
 
 const OrderPage = () => {
   return (
-   <OrderSummary />
+    <Order />
   )
-}
+}   
 
 export default OrderPage

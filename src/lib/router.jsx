@@ -10,6 +10,7 @@ import ShippingPage from '../pages/cart/ShippingPage'
 import ProfilePage from '../pages/auth/ProfilePage'
 import PrivateRoute from '../components/ui/PrivateRoute'
 import PaymentPage from '../pages/cart/PaymentPage'
+import OrderSummaryPage from '../pages/orders/OrderSummaryPage'
 import OrderPage from '../pages/orders/OrderPage'
 
 export const router = createBrowserRouter([
@@ -58,10 +59,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/ordersummary",
+                element: <OrderSummaryPage />
+            },
+            {
+                path: "/orders/:id",
                 element: <OrderPage />
             },
             {
-                path: "/payment",
+                path: "/payment/:id",
                 element: <PaymentPage />
             },
 

@@ -29,7 +29,7 @@ const CartButtons = () => {
     )
 }
 
-const CartItem = ({ cartItem, showControls = true, showDelete = true }) => {
+const CartItem = ({ cartItem, showControls = true, showDelete = true, showCount = true }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -64,33 +64,35 @@ const CartItem = ({ cartItem, showControls = true, showDelete = true }) => {
                         </span>
                     )}
 
-                    <div className='flex items-center gap-2'>
-                        <span className="text-gray-600">Quantity</span>
+                    {showCount &&
+                        <div className='flex items-center gap-2'>
+                            <span className="text-gray-600">Quantity</span>
 
-                        <div className="relative w-20">
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="w-full flex justify-between items-center px-3 py-1 border border-gray-300 rounded bg-white hover:border-gray-500 transition"
-                            >
-                                <span>{cartItem.qty}</span>
-                                <MdKeyboardArrowDown className="text-lg" />
-                            </button>
+                            <div className="relative w-20">
+                                <button
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="w-full flex justify-between items-center px-3 py-1 border border-gray-300 rounded bg-white hover:border-gray-500 transition"
+                                >
+                                    <span>{cartItem.qty}</span>
+                                    <MdKeyboardArrowDown className="text-lg" />
+                                </button>
 
-                            {isOpen && (
-                                <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-md overflow-hidden">
-                                    {[...Array(10)].map((_, index) => (
-                                        <li
-                                            key={index + 1}
-                                            onClick={() => handleSelect(index + 1)}
-                                            className="px-3 py-1 hover:bg-gray-100 cursor-pointer"
-                                        >
-                                            {index + 1}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
+                                {isOpen && (
+                                    <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-md overflow-hidden">
+                                        {[...Array(10)].map((_, index) => (
+                                            <li
+                                                key={index + 1}
+                                                onClick={() => handleSelect(index + 1)}
+                                                className="px-3 py-1 hover:bg-gray-100 cursor-pointer"
+                                            >
+                                                {index + 1}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
-                    </div>
+                    }
                 </section>
             </div>
 

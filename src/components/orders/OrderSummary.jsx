@@ -9,10 +9,9 @@ import { clearCartItems } from '../../slices/cartSlice'
 
 const OrderSummary = () => {
 
-    const cart = useSelector((state) => state.cart)
+    const cart = useSelector((state) => state.cart);
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const [createOrder, { isLoading, error, data}] = useCreateOrderMutation();
 
@@ -20,24 +19,20 @@ const OrderSummary = () => {
         if (!cart.shippingAddress.address) {
             navigate('/shipping');
         }
-        else if (!cart.paymentMethod){
-            navigate('/payment');
-        }
-    },[cart.paymentMethod, cart.shippingAddress.address, navigate]);
+    },[cart.shippingAddress.address, navigate]);
 
-    const btnHandler = async () => {
-        const order = await createOrder({
+    const btnHandler = () => {
+        const order = createOrder({
             orderItems : cart.cartItems,
             shippingAddress : cart.shippingAddress,
-            paymentMethod : cart.paymentMethod,
             itemPrice : cart.itemPrice,
             shippingPrice : cart.shippingPrice,
             totalPrice : cart.totalPrice,
-            taxPrice : cart.taxPrice,
-            totalPrice : cart.totalPrice
+            taxPrice : cart.taxPrice
         }).unwrap().then((res) => {
-            dispatch(clearCartItems())
-            navigate(`/orders/${res._id}`)
+            // dispatch(clearCartItems())
+            // navigate(`/orders/${res._id}`)
+            navigate(`/payment/${res._id}`)
         }).catch((err) => {
             console.log(err);
         })
@@ -60,6 +55,7 @@ const OrderSummary = () => {
                             <span>{cart.shippingAddress.landmark}</span>
                             <span>{cart.shippingAddress.state}</span>
                             <span>{cart.shippingAddress.pincode}</span>
+                            <span>{cart.shippingAddress.number}</span>
                         </div>
                     </div>
 
@@ -82,7 +78,6 @@ const OrderSummary = () => {
                     totalPrice={cart.totalPrice} />
             </section>
         </div>
-
     )
 }
 

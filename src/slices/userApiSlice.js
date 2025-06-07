@@ -7,32 +7,28 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${USERS_URL}/auth`,
         method: 'POST',
-        body: data,
-        credentials: 'include'
+        body: data
       })
     }),
     logout: builder.mutation({
       query: (data) => ({
         url: `${USERS_URL}/logout`,
         method: 'POST',
-        body: data,
-        credentials: 'include'
+        body: data
       })
     }),
     register: builder.mutation({
       query: (data) => ({
         url: USERS_URL,
         method: 'POST',
-        body: data,
-        credentials: 'include'
+        body: data
       })
     }), 
     reserPassword : builder.mutation({
       query: (data) => ({
        url : `${USERS_URL}/password`,
         method: 'POST',
-        body: data,
-        credentials: 'include'
+        body: data
       })
     })
   })

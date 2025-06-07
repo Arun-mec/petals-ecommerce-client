@@ -27,7 +27,7 @@ const Shipping = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(saveShippingAddress(values));
-        navigate('/payment');
+        navigate('/ordersummary');
     }
 
     return (
@@ -64,13 +64,13 @@ const Shipping = () => {
                         onChange={(e) => handleChange(e)} />
                 </section>
                 <section>
-                    <label for="number" className={labelStyle}>State</label>
+                    <label for="number" className={labelStyle}>Phone number</label>
                     <input type="text" className={inputStyle} name="number" placeholder='Number'
                         onChange={(e) => handleChange(e)} />
                 </section>
                 <span className='text-xs md:text-sm text-red-600'> {'\u00A0'}</span>
-                <Button content="Go to payment" onClick={(e) => { handleSubmit(e) }}
-                    style="w-full p-2 border-[.1rem] bg-blue-600 border-blue-600 text-white hover:text-blue-600 text-md rounded" />
+                <Button content="Order Summary" onClick={(e) => { handleSubmit(e) }}
+                    style="w-full p-2 border-[.1rem] bg-black border-black text-white hover:text-black text-md rounded" />
             </form>
         </div>
     )
