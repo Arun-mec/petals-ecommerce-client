@@ -12,6 +12,9 @@ import PrivateRoute from '../components/ui/PrivateRoute'
 import PaymentPage from '../pages/cart/PaymentPage'
 import OrderSummaryPage from '../pages/orders/OrderSummaryPage'
 import OrderPage from '../pages/orders/OrderPage'
+import MyOrderPage from '../pages/orders/MyOrderPage'
+import AdminRoute from '../components/ui/AdminRoute'
+import AdminOrdersPage from '../pages/admin/AdminOrdersPage'
 
 export const router = createBrowserRouter([
     {
@@ -69,7 +72,24 @@ export const router = createBrowserRouter([
                 path: "/payment/:id",
                 element: <PaymentPage />
             },
-
+            {
+                path : "/profile",
+                element : <ProfilePage />
+            },
+            {
+                path : "/orders",
+                element : <MyOrderPage />
+            }
+        ]
+    },
+    {
+        element : <AdminRoute />,
+        children : 
+        [
+            {
+                path: '/admin/orders',
+                element : <AdminOrdersPage />
+            }
         ]
     }
 ])

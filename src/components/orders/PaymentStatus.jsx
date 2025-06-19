@@ -1,8 +1,6 @@
 import React from 'react'
 
 const PaymentStatus = ({isOrderPaid, paidAt}) => {
-    console.log(isOrderPaid);
-    console.log(paidAt);
     
     return (
          <div className="w-full border border-gray-300 rounded-md p-4 bg-white shadow-sm">

@@ -63,7 +63,7 @@ const LoginDropdown = () => {
                             <FaChevronDown />
                         </section>
                     )  :
-                    <Button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} content="Login"
+                    <Button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} content="Login" onClick={handleLoginClick}
                         style={`${isHome ? 'w-full border-[.1px] border-white bg-white text-black hover:text-black' : 'w-full border-[.1px] border-black bg-black text-white hover:text-black' } p-1 px-4 text-md`} />
                 }
                
@@ -81,30 +81,36 @@ const LoginDropdown = () => {
                                     <span className='text-blue-600 hover:underline'>Sign up</span>
                                 </li>
                             }
-                            <li
-                                onClick={handleLoginClick}
-                                className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100 border-gray-400">
-                                <RiUser3Fill className="text-md md:text-lg text-gray-400" />
-                                <span className='text-sm md:text-md'>My Profile</span>
-                            </li>
-                            <li
-                                onClick={() => console.log()}
-                                className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100  border-gray-400">
-                                <MdOutlineFavorite className="text-md md:text-lg text-gray-400" />
-                                <span className='text-sm md:text-md'>Wishlist</span>
-                            </li>
-                            <li
-                                onClick={() => console.log()}
-                                className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100 border-gray-400">
-                                <HiShoppingCart className="text-md md:text-lg text-gray-400" />
-                                <span className='text-sm md:text-md'>Orders</span>
-                            </li>
-                            <li
-                                onClick={() => console.log()}
-                                className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100  border-gray-400">
-                                <RiCoupon2Fill className="text-md md:text-lg text-gray-400" />
-                                <span className='text-sm md:text-md'>Rewards</span>
-                            </li>
+                            {
+                                (auth && !auth.isAdmin )&& 
+                                <>
+                                    <li
+                                        onClick={handleLoginClick}
+                                        className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100 border-gray-400">
+                                        <RiUser3Fill className="text-md md:text-lg text-gray-400" />
+                                        <span className='text-sm md:text-md'>My Profile</span>
+                                    </li>
+                                    <li
+                                        onClick={() => console.log()}
+                                        className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100  border-gray-400">
+                                        <MdOutlineFavorite className="text-md md:text-lg text-gray-400" />
+                                        <span className='text-sm md:text-md'>Wishlist</span>
+                                    </li>
+                                    <li
+                                        onClick={() => navigate('/orders')}
+                                        className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100 border-gray-400">
+                                        <HiShoppingCart className="text-md md:text-lg text-gray-400" />
+                                        <span className='text-sm md:text-md'>Orders</span>
+                                    </li>
+                                    <li
+                                        onClick={() => console.log()}
+                                        className="p-4 px-2 cursor-pointer flex flex-row items-center justify-start gap-2 border-b-[.1px] hover:bg-gray-100  border-gray-400">
+                                        <RiCoupon2Fill className="text-md md:text-lg text-gray-400" />
+                                        <span className='text-sm md:text-md'>Rewards</span>
+                                    </li>
+                                </>
+                            }
+                            
 
                             {
                                 auth && 
@@ -118,6 +124,9 @@ const LoginDropdown = () => {
                         </ul>
                     </div>
                 )}
+
+                
+
             </div>
         </div>
     )

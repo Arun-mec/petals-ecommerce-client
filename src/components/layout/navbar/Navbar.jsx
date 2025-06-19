@@ -9,12 +9,14 @@ import NavbarSm from "./NavbarSm";
 import CartDrawer from "../../cart/CartDrawer";
 import CartDrawerContext from "../../../contexts/CartDrawerContext";
 import LoginDropdown from "../../auth/LoginDropdown";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const location = useLocation();
     const isHome = location.pathname === "/";
     const {isCartDrawOpen, setIsCartDrawOpen } = useContext(CartDrawerContext);
     const [isDrawOpen, setIsDrawOpen] = useState(false);
+    const {auth} = useSelector((state) => state.auth);
     
     const [isVisible, setIsVisible] = useState(false);
 
@@ -42,7 +44,8 @@ const Navbar = () => {
                 </nav>
                 <UserLinks toggleCartDrawer={toggleCartDrawer} />
             </section>
-            <NavDropDown isvisible={isVisible} setIsVisible={setIsVisible} />
+            { (auth && !auth.isAdmin) && <NavDropDown isvisible={isVisible} setIsVisible={setIsVisible} /> }
+            
 
             {/* Mobile view */}
 

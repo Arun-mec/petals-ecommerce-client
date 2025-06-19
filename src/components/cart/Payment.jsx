@@ -29,7 +29,7 @@ const Payment = () => {
     const params = useParams();
     const orderId = params.id;
 
-    const { data: order, isLoading, isError, refetch} = useGetOrderDetailsQuery(orderId);
+    const { data: order, isLoading, isError, refetch } = useGetOrderDetailsQuery(orderId);
 
     const { values, handleChange, resetForm } = useForm({});
 
@@ -50,7 +50,7 @@ const Payment = () => {
     const { data: paypal, isLoading: loadingClientId, error: errorClientId } = useGetPaypalClientIdQuery();
 
     const onApproveTest = async () => {
-        await payOrder({ orderId, details : {payer :{}} });
+        await payOrder({ orderId, details: { payer: {} } });
         dispatch(savePaymentMethod({ paymentMethod: "Paypal" }))
         dispatch(clearCartItems());
         navigate(`/orders/${orderId}`);
@@ -59,7 +59,7 @@ const Payment = () => {
     const onApprove = (data, actions) => {
         return actions.order.capture().then(async (details) => {
             try {
-                await payOrder({ orderId, details : { payer :{}}});
+                await payOrder({ orderId, details: { payer: {} } });
                 dispatch(savePaymentMethod({ paymentMethod: "Test Payment" }))
                 dispatch(clearCartItems());
                 navigate(`/orders/${orderId}`);
@@ -70,19 +70,19 @@ const Payment = () => {
         })
     }
 
-    const createOrder = () => {
-        return action.order.create({
-            purchase_units : [
+    const createOrder = (data, actions) => {
+        return actions.order.create({
+            purchase_units: [
                 {
-                    amount : {
-                        value : order.totalPrice
+                    amount: {
+                        value: order.totalPrice
                     }
                 }
             ]
         })
-        .then((orderId) => {
-            return orderId;
-        })
+            .then((orderId) => {
+                return orderId;
+            })
     }
 
     const onError = (error) => {
@@ -97,25 +97,26 @@ const Payment = () => {
     }
 
     useEffect(() => {
-        if (!errorClientId && !loadingClientId && paypal.clientId) {
-            const loadPaypalScript = async () => {
-                paypalDispatch({
-                    type: 'resetOptions',
-                    value: {
-                        'client-id': paypal.clientId,
-                        currency: 'USD'
-                    }
-                })
-            }
-            paypalDispatch({ type: 'setLoadingStatus', value: 'pending' })
-        }
+        const loadPaypalScript = async () => {
+            paypalDispatch({
+                type: 'resetOptions',
+                value: {
+                    'client-id': paypal.clientId,
+                    currency: 'USD'
+                }
+            });
+            paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
+        };
 
-        if (order && !order.isPaid) {
-            if (!window.paypal) {
-                loadPaypalScript();
+        if (!errorClientId && !loadingClientId && paypal.clientId) {
+            if (order && !order.isPaid) {
+                if (!window.paypal) {
+                    loadPaypalScript();
+                }
             }
         }
     }, [order, paypal, loadingClientId, errorClientId, paypalDispatch]);
+
 
     const handleSubmit = (e) => {
         showLoader();

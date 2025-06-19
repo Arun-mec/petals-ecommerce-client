@@ -29,7 +29,7 @@ const CartButtons = () => {
     )
 }
 
-const CartItem = ({ cartItem, showControls = true, showDelete = true, showCount = true }) => {
+const CartItem = ({ cartItem, showControls = true, showDelete = true, showCount = true, productId}) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -44,7 +44,7 @@ const CartItem = ({ cartItem, showControls = true, showDelete = true, showCount 
     const handleDelete = () => {
         dispatch(removeFromCart(cartItem._id));
         navigate('/')
-    }
+    }   
 
     return (
         <section className='relative bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200'>
@@ -55,7 +55,7 @@ const CartItem = ({ cartItem, showControls = true, showDelete = true, showCount 
                     className="col-span-1 w-full aspect-square object-cover rounded"
                 />
                 <section className="col-span-3 flex flex-col gap-2 text-sm md:text-base text-gray-700">
-                    <Link to={`/products/${cartItem._id}`}><span className="font-medium text-gray-800">{cartItem.name}</span></Link>
+                    <Link to={`/products/${productId ? productId : cartItem._id }`}><span className="font-medium text-gray-800">{cartItem.name}</span></Link>
                     <span className="text-gray-500">Beige, MD</span>
 
                     {cartItem.qty === 10 && (

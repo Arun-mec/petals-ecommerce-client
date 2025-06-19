@@ -128,15 +128,17 @@ const Product = () => {
 
   const { cartItems } = useSelector((state) => state.cart)
 
-  const { showLoader, hideLoader } = useContext(LoaderContext);
+  // const { showLoader, hideLoader } = useContext(LoaderContext);
 
   const existngItm = cartItems.find((cartItem) => cartItem._id === productId);
 
   const existInCart = existngItm ? true : false;
 
-  isLoading ? showLoader() : hideLoader();
+  // isLoading ? showLoader() : hideLoader();
 
   if (isError || isLoading) return <div>No product found</div>;
+
+  console.log(product)
 
   return (
     <div className="container mx-auto min-h-screen flex flex-col gap-4 px-4 md:px-8 py-20 md:py-28">

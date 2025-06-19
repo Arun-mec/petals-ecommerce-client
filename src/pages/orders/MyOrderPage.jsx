@@ -1,16 +1,16 @@
 import React from 'react'
-import Profile from '../../components/auth/Profile'
+import Myorders from '../../components/auth/Myorders'
 import Header from '../../components/layout/header/Header'
 import Footer from '../../components/layout/footer/Footer'
 
-const ProfilePage = () => {
+const MyOrderPage = () => {
   return (
     <>
         <Header />
-        <Profile />
+        <Myorders />
         <Footer />
     </>
   )
 }
 
-export default ProfilePage
+export default MyOrderPage
