@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Breadcrumbs from "../ui/BreadCrumb"
 import ProductColor from "./ProductColor"
 import ProductSize from "./ProductSize"
@@ -12,9 +12,10 @@ import { useGetProductByIdQuery } from "../../slices/productsApiSlice"
 import Loader from "../layout/loader/Loader"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../../slices/cartSlice"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import CartDrawerContext from "../../contexts/CartDrawerContext"
 import { LoaderContext } from "../../contexts/LoaderContext"
+import { BASE_URL } from "../../../constants"
 
 const ProductDetails = ({ product, style }) => {
   return (
@@ -122,11 +123,15 @@ const ProductOfferDetails = ({ product, style, existInCart = false }) => {
 
 const Product = () => {
 
+  const navigate = useNavigate();
   const { id: productId } = useParams();
 
-  const { data: product, isLoading, isError } = useGetProductByIdQuery(productId);
+  const { data: product, isLoading, isError } = useGetProductByIdQuery(productId, {
+    refetchOnMountOrArgChange: true,
+  });
 
-  const { cartItems } = useSelector((state) => state.cart)
+  const { cartItems } = useSelector((state) => state.cart);
+  const { auth } = useSelector((state) => state.auth);
 
   // const { showLoader, hideLoader } = useContext(LoaderContext);
 
@@ -138,15 +143,23 @@ const Product = () => {
 
   if (isError || isLoading) return <div>No product found</div>;
 
-  console.log(product)
-
   return (
     <div className="container mx-auto min-h-screen flex flex-col gap-4 px-4 md:px-8 py-20 md:py-28">
-      <Breadcrumbs />
+      <div className="w-full flex items-center justify-between">
+        <Breadcrumbs />
+        {
+          auth && auth.isAdmin &&
+          <Button
+                onClick={() => navigate(`/admin/products/${productId}/edit`)}
+                content="Edit Product"
+                style="max-w-fit p-2 px-4 bg-blue-500 text-white rounded hover:bg-white hover:text-blue-500 border border-blue-500 transition"
+              />
+        }
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-md rounded-xl p-4">
         <div className="w-full aspect-square overflow-hidden rounded-lg">
           <img
-            src={product.image}
+            src={`${BASE_URL}${product.image}`}
             alt="Product"
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />

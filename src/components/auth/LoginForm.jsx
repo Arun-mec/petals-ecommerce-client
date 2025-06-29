@@ -33,7 +33,7 @@ const Loginform = ({ style }) => {
 
   useEffect((auth) => {
     if (auth) {
-      navigate(redirect);
+      auth.isAdmin ? navigate('/admin') : navigate(redirect);
     }
   }, [redirect, auth, navigate])
 

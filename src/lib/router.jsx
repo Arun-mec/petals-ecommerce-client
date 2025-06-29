@@ -15,6 +15,9 @@ import OrderPage from '../pages/orders/OrderPage'
 import MyOrderPage from '../pages/orders/MyOrderPage'
 import AdminRoute from '../components/ui/AdminRoute'
 import AdminOrdersPage from '../pages/admin/AdminOrdersPage'
+import AdminProductsPage from '../pages/admin/AdminProductsPage'
+import AdminProductEditPage from '../pages/admin/AdminProductEditPage'
+import AdminPage from '../pages/admin/AdminPage'
 
 export const router = createBrowserRouter([
     {
@@ -87,8 +90,20 @@ export const router = createBrowserRouter([
         children : 
         [
             {
+                path: '/admin',
+                element : <AdminPage />
+            },
+            {
                 path: '/admin/orders',
                 element : <AdminOrdersPage />
+            },
+            {
+                path : '/admin/products',
+                element : <AdminProductsPage />
+            },
+            {
+                path : '/admin/products/:id/edit',
+                element : <AdminProductEditPage />
             }
         ]
     }

@@ -5,6 +5,7 @@ import ProductCard from '../ui/ProductCard'
 import Breadcrumbs from '../ui/BreadCrumb'
 import { useGetProductsQuery } from '../../slices/productsApiSlice'
 import Loader from '../layout/loader/Loader'
+import { BASE_URL } from '../../../constants'
 
 const ProductListing = () => {
 
@@ -25,7 +26,7 @@ const ProductListing = () => {
                     products.map((product, i) => (
                         <ProductCard
                             id={product._id}
-                            image={product.image}
+                            image={`${BASE_URL}${product.image}`}
                             name={product.name}
                             price={product.price}
                             like={product.like}

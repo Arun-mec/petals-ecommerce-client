@@ -1,7 +1,4 @@
 import React, { useContext, useState } from 'react'
-import PriceSummary from '../cart/PriceSummary'
-import DeliveryStatus from '../orders/DeliveryStatus'
-import PaymentStatus from '../orders/PaymentStatus'
 import { Link } from 'react-router-dom'
 import { LoaderContext } from '../../contexts/LoaderContext'
 import { useGetMyOrdersQuery } from '../../slices/orderApiSlice'
