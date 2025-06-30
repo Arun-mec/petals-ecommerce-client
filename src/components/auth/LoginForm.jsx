@@ -33,7 +33,7 @@ const Loginform = ({ style }) => {
 
   useEffect((auth) => {
     if (auth) {
-      auth.isAdmin ? navigate('/admin') : navigate(redirect);
+      auth && auth.isAdmin ? navigate('/admin') : auth ? navigate(redirect) : navigate('/');
     }
   }, [redirect, auth, navigate])
 
@@ -49,12 +49,14 @@ const Loginform = ({ style }) => {
     else {
       setEmailErr("Please enter a valid email")
     }
+
+    console.log(values)
   }
 
   const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
     showLoader();
-
+    console.log(values)
     const res = await login(values).unwrap()
       .then((res) => {
         dispatch(setAuthCredentials({ ...res }))
@@ -84,6 +86,7 @@ const Loginform = ({ style }) => {
             onChange={(e) => {
               setLoginErr("");
               handleChange(e);
+              console.log(values)
             }} />
         </section>
         <span className='text-xs md:text-sm text-red-600'> {loginErr || '\u00A0'}</span>

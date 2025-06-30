@@ -103,12 +103,12 @@ const Profile = () => {
 
 
     useEffect(() => {
-    if (auth) {
-        setUsername(auth.auth.username || '');
-        setEmail(auth.auth.email || '');
-        setNumber(auth.auth.number || '');  // ← important default
-    }
-}, [auth]);
+        if (auth) {
+            setUsername(auth.auth.username || '');
+            setEmail(auth.auth.email || '');
+            setNumber(auth.auth.number || '');  // ← important default
+        }
+    }, [auth]);
 
 
     const handleUpdateProfile = async (e) => {
@@ -117,7 +117,10 @@ const Profile = () => {
         try {
             const user = await updateProfile({
                 _id: auth.auth.profile,
-                username:username, email:email, password: password, number: number
+                username: username,
+                email: email,
+                password: password,
+                number: number
             }).unwrap();
             console.log(user)
             dispatch(setAuthCredentials(user));
@@ -127,7 +130,7 @@ const Profile = () => {
             hideLoader();
         }
     }
-    
+
     return (
         <div className="smcontainer md:container flex flex-col items-center justify-center my-[1rem] md:my-[2rem] p-2 md:p-4 py-20 md:py-28 gap-4 md:gap-6">
             <div className={`w-full sm:w-3/4 lg:w-1/2 flex flex-col justify-start items-start gap-4 md:gap-6 p-4 shadow-md rounded`}>

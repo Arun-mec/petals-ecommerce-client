@@ -35,7 +35,7 @@ const UserLinks = ({ style }) => {
             <div className={`${linkStyle}`}>
                 {/* <MdOutlineFavorite className="text-xl md:text-2xl"/> */}
                 {!isLogin && <LoginDropdown />}
-                {!isCart && !auth.isAdmin && 
+                {!isCart && auth && !auth.isAdmin && 
                     <section onClick={() => navigate('/cart')} className="flex flex-row gap-1 items-start justify-center">
                         <RiShoppingBagFill className="text-xl md:text-2xl" />
                         <span className="bg-white text-black rounded-[50%] w-6 h-6 flex justify-center">{cartItems.length ? cartItems.length : 0}</span>

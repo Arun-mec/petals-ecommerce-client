@@ -4,27 +4,25 @@ const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
 
   const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+  const { name, value } = e.target;
 
-    console.log(name, value)
-    const keys = name.split('.');
-    console.log(keys)
-    if (keys.length === 2) {
-      setValues({
-         ...values,
-        [keys[0]]: {
-          ...values[keys[0]],
-          [keys[1]]: value,
-        },
-      })
-    } else {
-      setValues({
-        ...values,
-        name: value
-      })
-    }
-  };
+  const keys = name.split('.');
+  if (keys.length === 2) {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [keys[0]]: {
+        ...prevValues[keys[0]],
+        [keys[1]]: value,
+      },
+    }));
+  } else {
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  }
+};
+
 
   const resetForm = () => setValues(initialValues);
 
