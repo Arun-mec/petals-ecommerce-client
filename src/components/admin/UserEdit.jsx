@@ -59,8 +59,7 @@ const UserEdit = () => {
             setErrors({ ...errors, emailErr: 'Enter a valid email!' });
         }
     };
-
-
+    
     const handleNumberChange = (e) => {
         const value = e.target.value;
         setNumber(value); // Always update the input state
@@ -76,8 +75,6 @@ const UserEdit = () => {
             setErrors({ ...errors, numberErr: 'Enter a valid phone number!' });
         }
     };
-
-    console.log(user)
 
     const handleUpdateUser = async (e) => {
         e.preventDefault();

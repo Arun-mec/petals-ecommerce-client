@@ -45,7 +45,7 @@ const UserList = () => {
             <div className="w-full flex flex-row justify-between items-center border-b-[0.1px] border-b-gray-400 p-1">
                 <span className='text-xl'>Users</span>
             </div>
-            <table className="my-4 min-w-full text-sm text-left text-gray-700 shadow-sm rounded-lg">
+            <table className="my-4 min-w-full text-sm text-left text-gray-700 shadow-sm rounded-lg border-[0.1px] border-gray-200'">
                 <thead className="bg-gray-100 text-gray-800 uppercase text-xs">
                     <tr>
                         <th className="px-6 py-4">ID</th>

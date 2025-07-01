@@ -8,14 +8,15 @@ import ProductPrice from "./ProductPrice"
 import { FaLocationDot } from "react-icons/fa6"
 import ProductFeatures from "./ProductFeatures"
 import ProductBrand from "./ProductBrand"
-import { useGetProductByIdQuery } from "../../slices/productsApiSlice"
+import { useCreateReviewMutation, useGetProductByIdQuery, useGetProductReviewsQuery } from "../../slices/productsApiSlice"
 import Loader from "../layout/loader/Loader"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../../slices/cartSlice"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import CartDrawerContext from "../../contexts/CartDrawerContext"
 import { LoaderContext } from "../../contexts/LoaderContext"
 import { BASE_URL } from "../../../constants"
+import Rating from "../ui/Rating"
 
 const ProductDetails = ({ product, style }) => {
   return (
@@ -130,21 +131,33 @@ const Product = () => {
     refetchOnMountOrArgChange: true,
   });
 
+  const {data : reviews, isLoading : reviewLoading, error :reviewErr, refetch} = useGetProductReviewsQuery(productId);
+  const [createReview, { isLoading : createReviewLoading, error : createReviewErr}] = useCreateReviewMutation();
+
+  const [comment, setComment] = useState("");
+  const [rating, setRating] = useState(5);
+
   const { cartItems } = useSelector((state) => state.cart);
   const { auth } = useSelector((state) => state.auth);
-
-  // const { showLoader, hideLoader } = useContext(LoaderContext);
 
   const existngItm = cartItems.find((cartItem) => cartItem._id === productId);
 
   const existInCart = existngItm ? true : false;
 
-  // isLoading ? showLoader() : hideLoader();
+  const inputStyle = "w-3/4 border-[1px] border-gray-200 p-1 md:p-2 outline-none border-gray-400 rounded placeholder-gray-400"
+
+  const handleCreateReview = async () => {
+    const currReview = {
+      comment, rating
+    }
+    await createReview(productId, currReview);
+    refetch();
+  }
 
   if (isError || isLoading) return <div>No product found</div>;
 
   return (
-    <div className="container mx-auto min-h-screen flex flex-col gap-4 px-4 md:px-8 py-20 md:py-28">
+    <div className="container mx-auto min-h-screen flex flex-col gap-10 px-4 md:px-8 py-20 md:py-28">
       <div className="w-full flex items-center justify-between">
         <Breadcrumbs />
         {
@@ -152,10 +165,11 @@ const Product = () => {
           <Button
                 onClick={() => navigate(`/admin/products/${productId}/edit`)}
                 content="Edit Product"
-                style="max-w-fit p-2 px-4 bg-blue-500 text-white rounded hover:bg-white hover:text-blue-500 border border-blue-500 transition"
+                style="p-2 px-4 bg-blue-500 text-white rounded hover:bg-white hover:text-blue-500 border border-blue-500 transition"
               />
         }
       </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-md rounded-xl p-4">
         <div className="w-full aspect-square overflow-hidden rounded-lg">
           <img
@@ -175,6 +189,35 @@ const Product = () => {
             style="w-full"
           />
         </section>
+      </div>
+
+      <div className="flex flex-col gap-6 bg-white shadow-md rounded-xl p-4">
+        <div className="w-full flex flex-row justify-between p-2 border-b-[1px] border-gray-200">
+          <span className="text-lg md:text-xl">Reviews</span>
+          <span className="text-blue-600 text-md md:text-lg cursor-pointer hover:underline"
+            onClick={handleCreateReview}>Add review</span>
+        </div>
+
+        <div className="w-full flex flex-row justify-start gap-2 p-2 border-b-[1px] border-gray-200">
+          <input type="text" className={inputStyle} comment="comment" placeholder='Enter you comment'
+            onChange={(e)=>setComment(e.target.value)}/>
+          <Button content="Post Comment" onClick={handleCreateReview}
+              style="max-w-fit p-2 border-[.1rem] bg-blue-600 border-blue-600 text-white hover:text-blue-600 hover:bg-white text-md rounded transition" isDisabled={isLoading} />
+        </div>
+
+        {
+          reviews && reviews.map((review) => {
+            return (
+              <div>
+                <div className="w-full flex flex-col justify-start items-start p-2">
+                  <span className="border-b-[1px] border-b-gray-200 text-gray-800 text-lg md:text-xl">{review.name}</span>
+                  <span className="border-b-[1px] border-b-gray-200 text-blue-600 text-sm md:text-md cursor-pointer hover:underline">{review.comment}</span>
+                </div>
+                <Rating rating={review.rating}/>
+              </div>
+            )
+          })
+        }
       </div>
     </div>
 

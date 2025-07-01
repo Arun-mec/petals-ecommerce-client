@@ -65,7 +65,7 @@ const ProductList = () => {
                     style="max-w-fit p-2 border-[.1rem] bg-black border-black text-white hover:text-black hover:bg-white text-md rounded transition"
                     isDisabled={false} onClick={handleCreateProduct} />
             </div>
-            <table className="my-4 min-w-full text-sm text-left text-gray-700 shadow-sm rounded-lg">
+            <table className="my-4 min-w-full text-sm text-left text-gray-700 shadow-sm rounded-lg  border-[0.1px] border-gray-400'">
                 <thead className="bg-gray-100 text-gray-800 uppercase text-xs">
                     <tr>
                         <th className="px-6 py-4">ID</th>

@@ -4,6 +4,7 @@ import { IoFlashSharp } from 'react-icons/io5'
 import { useState } from 'react'
 import { changeItemQty, removeFromCart } from '../../slices/cartSlice'
 import { Link, useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../../../constants'
 
 const CartButtons = () => {
 
@@ -44,13 +45,14 @@ const CartItem = ({ cartItem, showControls = true, showDelete = true, showCount 
     const handleDelete = () => {
         dispatch(removeFromCart(cartItem._id));
         navigate('/')
-    }   
+    }
 
+    console.log(`${BASE_URL}/${cartItem.image}`)
     return (
         <section className='relative bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200'>
             <div className='grid grid-cols-4 items-center gap-4 p-3'>
                 <img
-                    src={cartItem.image}
+                    src={`${BASE_URL}${cartItem.image}`}
                     alt="Product"
                     className="col-span-1 w-full aspect-square object-cover rounded"
                 />
